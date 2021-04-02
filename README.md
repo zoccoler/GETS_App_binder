@@ -72,9 +72,3 @@ Mostra as medianas das durações (em horas) das ordens de serviço (OS) do(s) e
 ## Financiamento
 
 Este projeto foi financiado pelo [CNPq](http://www.cnpq.br/).
-
-## Licença de Software
-
-This program is a free software. You can redistribute and/or modify it under the terms of the [GNU General Public License v3.0](https://github.com/leoelias-unicamp/modals/blob/master/LICENSE) as published by the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
