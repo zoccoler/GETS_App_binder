@@ -44,12 +44,12 @@ Neste repositório, nós fornecemos os códigos-fonte para rodar a aplicação l
 ![interface1](/figuras/interface1.png)
 6. Clique no botão "Carregar Tabelas". Se alguma tabela estiver faltando, você será informado com uma mensagem abaixo do botão.
   - **Observação**: após o carregamento das tabelas, o arquivo ".zip" é deletado do ambiente virtual do binder.
-8. Selecione um ou mais equipamentos pelo campo "Equipamento";
-9. Selecione uma data inicial de análise pelo campo "Data Inicial";
-10. Selecione uma data final de análise pelo campo "Dara Final";
-11. Pronto! O gráfico deve ser apresentado no centro da tela.
+7. Selecione um ou mais equipamentos pelo campo "Equipamento";
+8. Selecione uma data inicial de análise pelo campo "Data Inicial";
+9. Selecione uma data final de análise pelo campo "Dara Final";
+10. Pronto! O gráfico deve ser apresentado no centro da tela.
 **Observação**:  Os aquivos de saída que você salvar serão armazenados na pasta “gets_app/data” e deverão ser baixados dest pasta antes de fechar as abas da aplicação. Para isso, é necessário selecionar os arquivos (assinalar as checkboxes) e clicar no botão Download (como ilustrado abaixo).
-![save_binder](save_binder.png)
+![save_binder](/figuras/save_binder.png)
 
 A aplicação contém 3 abas: Quantidade, Custo e Duração.
 
