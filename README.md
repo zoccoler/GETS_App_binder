@@ -21,13 +21,35 @@ Neste repositório, nós fornecemos os códigos-fonte para rodar a aplicação l
 
 ## Utilização
 
-1. 
-1. Carregue/copie as tabelas do GETS (imagens de como obtê-las são mostradas no final desta página) na pasta local escolhida no passo 4 da instalação;
-2. Clique no botão "Carregar Tabelas". Se alguma tabela estiver faltando, você será informado com uma mensagem abaixo do botão.
-3. Selecione um ou mais equipamentos pelo campo "Equipamento";
-4. Selecione uma data inicial de análise pelo campo "Data Inicial";
-5. Selecione uma data final de análise pelo campo "Dara Final";
-6. Pronto! O gráfico deve ser apresentado no centro da tela.
+1. Compactar tabelas em arquivo ".zip":
+  - Utilize um software de compressão de arquivos, como o [WinRAR](https://www.win-rar.com/) para compactar as tabelas do GETS (ou uma pasta contendo as tabelas) num único arquivo ".zip".
+  - **Importante**: a aplicação não aceita ".rar", deve ser ".zip";
+2. Carregar repositório no Mybinder:
+  - Clique na tag [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/zoccoler/GETS_App_binder/HEAD) e aguarde a criação do ambiente;
+  - Após certo tempo, a interface do Jupyter notebook deve aparecer.
+3. Fazer o upload das tabelas:
+  - Clique na pasta "data" para abrí-la (veja figura abaixo);
+![load1](/figuras/load1.png)
+  - Clique no botão "Upload" (mostrado em vermelho na figura abaixo) e selecione o arquivo ".zip" contendo todas as tabelas;
+![load2](/figuras/load2.png)
+  - Clique no botão azul de "Upload" (destacado em vermelho na figura abaixo). Em seguida retorne ao diretório raíz clicando no ícone da pasta destacado em verde na figura abaixo.
+![load3](/figuras/load3.png)
+4. Abrir o código principal:
+  - Clique sobre o arquivo entitulado "Interface_temporal_GETS.ipynb";
+  - O código deve abrir numa nova aba/janela como ilustrado abaixo;
+![voila1](/figuras/voila1.png)
+5. Abrir a interface pelo Voilà:
+  - Clique no botão Voilà;
+  - A interface principal da aplicação vai abrir numa nova aba/janela (veja figura abaixo).
+![interface1](/figuras/interface1.png)
+6. Clique no botão "Carregar Tabelas". Se alguma tabela estiver faltando, você será informado com uma mensagem abaixo do botão.
+  - **Observação**: após o carregamento das tabelas, o arquivo ".zip" é deletado do ambiente virtual do binder.
+8. Selecione um ou mais equipamentos pelo campo "Equipamento";
+9. Selecione uma data inicial de análise pelo campo "Data Inicial";
+10. Selecione uma data final de análise pelo campo "Dara Final";
+11. Pronto! O gráfico deve ser apresentado no centro da tela.
+**Observação**:  Os aquivos de saída que você salvar serão armazenados na pasta “gets_app/data” e deverão ser baixados dest pasta antes de fechar as abas da aplicação. Para isso, é necessário selecionar os arquivos (assinalar as checkboxes) e clicar no botão Download (como ilustrado abaixo).
+![save_binder](save_binder.png)
 
 A aplicação contém 3 abas: Quantidade, Custo e Duração.
 
