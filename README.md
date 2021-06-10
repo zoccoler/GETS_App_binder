@@ -48,7 +48,7 @@ Neste repositório, nós fornecemos os códigos-fonte para rodar a aplicação l
 8. Selecione uma data inicial de análise pelo campo "Data Inicial";
 9. Selecione uma data final de análise pelo campo "Dara Final";
 10. Pronto! O gráfico deve ser apresentado no centro da tela.
-**Observação**:  Os aquivos de saída que você salvar serão armazenados na pasta “gets_app/data” e deverão ser baixados dest pasta antes de fechar as abas da aplicação. Para isso, é necessário selecionar os arquivos (assinalar as checkboxes) e clicar no botão Download (como ilustrado abaixo).
+**Observação**:  Os aquivos de saída que você salvar serão armazenados na pasta “gets_app/data” e deverão ser baixados desta pasta antes de fechar as abas da aplicação. Para isso, é necessário selecionar os arquivos (assinalar as checkboxes) e clicar no botão Download (como ilustrado abaixo).
 ![save_binder](/figuras/save_binder.png)
 
 A aplicação contém 3 abas: Quantidade, Custo e Duração.
