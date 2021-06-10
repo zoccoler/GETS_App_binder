@@ -154,12 +154,12 @@ def load_open_OS_data(df,open_OS_path):
     import numpy as np
     import os
 
-    open_OS = pd.read_excel(open_OS_path,skiprows=3,header=2,dtype={'Num.': str, 'Patrimônio': str, 'Estado':str})
+    open_OS = pd.read_excel(open_OS_path,skiprows=3,header=2,dtype={'Num.': str, 'Patrimônio': str, 'Estado':str, 'Classe':str})
     open_OS = open_OS.drop(['Núm.Orgão','N. Série','Grupo','Marca','Modelo','No Nec','Equipamento Crítico'], axis=1)
     # Put dates in the right format
-    open_OS['Dt. Abertura'] = pd.to_datetime(open_OS['Dt. Abertura'],dayfirst=True)
+    open_OS['Abertura'] = pd.to_datetime(open_OS['Abertura'],dayfirst=True)
     open_OS['Dt. Última Transição'] = pd.to_datetime(open_OS['Dt. Última Transição'],dayfirst=True)
-    open_OS.sort_values('Dt. Abertura', inplace=True)
+    open_OS.sort_values('Abertura', inplace=True)
     
     # Find OS that are ready to treat separatedly
     OS_ready = open_OS['Estado']=='OSP - OS Pronta'
@@ -168,9 +168,9 @@ def load_open_OS_data(df,open_OS_path):
     open_OS.loc[:,'Processada'] = np.zeros(len(open_OS),dtype=bool)
     # Create a copy with just the OS that are ready
     open_OS_ready = open_OS.loc[OS_ready].copy()
-    # Change status of column 'Processada' to True in this copy and redefines 'Dt. Abertura' as 'Dt. Última Transição'
+    # Change status of column 'Processada' to True in this copy and redefines 'Abertura' as 'Dt. Última Transição'
     open_OS_ready.loc[:,'Processada'] = True
-    open_OS_ready.loc[:,'Dt. Abertura'] = open_OS_ready.loc[:,'Dt. Última Transição']
+    open_OS_ready.loc[:,'Abertura'] = open_OS_ready.loc[:,'Dt. Última Transição']
     #################################
     #### Now, in both dataframes ####
     # Insert new column 'Encerramento' (empty), but attribute 'Dt. Última Transição' to OS that are ready
@@ -180,14 +180,20 @@ def load_open_OS_data(df,open_OS_path):
     open_OS_ready.loc[:,'Encerramento'] = open_OS_ready.loc[:,'Dt. Última Transição']
     # Insert new column 'Classe' (with 'Manutenção Corretiva'). Obs: tha excel table was generated with the 
     #    filter 'Manutenção Corretiva', so all OS's should be of this class
-    open_OS.insert(1,'Classe','Manutenção Corretiva')
-    open_OS_ready.insert(1,'Classe','Manutenção Corretiva')
+#     open_OS.insert(1,'Classe','Manutenção Corretiva')
+#     open_OS_ready.insert(1,'Classe','Manutenção Corretiva')
+    # Find 'Classe' MC and replace by 'Manutenção Corretiva' (same name as in OS ready file)
+    open_OS_MC = open_OS['Classe'] == 'MC'
+    open_OS_ready_MC = open_OS_ready['Classe'] == 'MC'
+    open_OS.loc[open_OS_MC, 'Classe'] = "Manutenção Corretiva"
+    open_OS_ready.loc[open_OS_ready_MC, 'Classe'] = "Manutenção Corretiva"
+    
     # delete the column 'Dt. Última Transição' (not necessary anymore) and renames some column to match those of the 
     #    closed_OS dataframe
     open_OS = open_OS.drop(['Dt. Última Transição'], axis=1)
     open_OS_ready = open_OS_ready.drop(['Dt. Última Transição'], axis=1)
-    open_OS.rename(columns={"Num.": "Núm. O.S.", "Dt. Abertura": "Abertura"},inplace=True)
-    open_OS_ready.rename(columns={"Num.": "Núm. O.S.", "Dt. Abertura": "Abertura"},inplace=True)
+    open_OS.rename(columns={"Num.": "Núm. O.S.", "Abertura": "Abertura"},inplace=True)
+    open_OS_ready.rename(columns={"Num.": "Núm. O.S.", "Abertura": "Abertura"},inplace=True)
     ################################
     # Concatenate closed_OS dataframe with open_OS and open_OS_ready dataframes
     df = pd.concat([df,open_OS,open_OS_ready],ignore_index=True)
